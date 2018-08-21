@@ -1,3 +1,18 @@
-import React from "react"
+import React from 'react'
 
-export default () => <div>Hello world!</div>
+const IndexPage = () => <div>Hello world!</div>
+
+export default IndexPage
+
+
+const pageQuery = graphql`
+	{
+	 allAirtable {
+		edges {
+			 node {
+				 slug
+			 }
+			}
+	 }
+	}
+`
