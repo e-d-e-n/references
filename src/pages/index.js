@@ -1,16 +1,26 @@
 import React from 'react'
+import {graphql} from 'gatsby'
 
-const IndexPage = () => <div>Hello world!</div>
+const IndexPage = ({data}) => <pre>{JSON.stringify(data, null, 2)}</pre>
 
 export default IndexPage
 
-
-const pageQuery = graphql`
-	{
+export const pageQuery = graphql`
+	query {
 	 allAirtable {
 		edges {
 			 node {
-				 slug
+				 id
+				 name
+				 image {url}
+				 artist
+				 year
+				 url
+				 group
+				 input
+				 transform
+				 output
+				 description
 			 }
 			}
 	 }
