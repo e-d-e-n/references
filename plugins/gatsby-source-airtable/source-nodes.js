@@ -1,5 +1,6 @@
 const Airtable = require('airtable')
 const crypto = require('crypto')
+const capitalize = ([first, ...rest]) => [first.toUpperCase(), rest].join('')
 
 const createContentDigest = obj => crypto
 	.createHash('md5')
@@ -8,7 +9,7 @@ const createContentDigest = obj => crypto
 
 module.exports = async (
 	{createNodeId, actions: {createNode, setPluginStatus}},
-	{apiKey, baseId, tableName, tableView, queryName},
+	{apiKey, baseId, tableName, tableView = '', name = tableName},
 ) => {
 	const table = new Airtable({apiKey}).base(baseId)(tableName)
 	const query = await table.select({view: tableView}).all()
@@ -16,10 +17,11 @@ module.exports = async (
 		createNode({
 			...row.fields,
 			id: createNodeId(`airtable-row-${row.id}`),
+			sourceInstanceName: name,
 			children: [],
 			parent: null,
 			internal: {
-				type: `Airtable${queryName || ''}`,
+				type: `Airtable${capitalize(tableName)}`,
 				contentDigest: createContentDigest(row),
 			},
 		})

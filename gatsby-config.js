@@ -6,7 +6,6 @@ module.exports = {
 				apiKey: 'keyszGUPF6NHuOVP3',
 				baseId: 'appJ7LZdoJfEcJIDr',
 				tableName: 'examples',
-				tableView: '',
 			},
 		},
 	],
