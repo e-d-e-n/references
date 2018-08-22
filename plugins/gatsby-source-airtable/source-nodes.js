@@ -1,6 +1,6 @@
 const Airtable = require('airtable')
 const crypto = require('crypto')
-const capitalize = ([first, ...rest]) => [first.toUpperCase(), rest].join('')
+const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('')
 
 const createContentDigest = obj => crypto
 	.createHash('md5')

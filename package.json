@@ -10,5 +10,8 @@
     "gatsby": "next",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "airtable": "^0.5.6"
   }
 }
