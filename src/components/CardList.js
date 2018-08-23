@@ -7,8 +7,7 @@ import {Row, Cell} from '../components/Grid'
 import Card from './Card'
 
 const Wrapper = styled.div`
-	margin: 5rem 0;
-	overflow: hidden;
+	margin-bottom: 5rem;
 `
 
 const Separator = styled(Heading)`
@@ -21,6 +20,7 @@ const Separator = styled(Heading)`
 	border-bottom: 1px solid ${colors.base88};
 	z-index: 1;
 	display: flex;
+	margin-top: 5rem;
 	justify-content: space-between;
 `
 
