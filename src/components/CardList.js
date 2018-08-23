@@ -65,7 +65,7 @@ const CardList = ({title, entries, id}) => (
 		</Separator>
 		<Grid>
 			{entries.map(entry => (
-				<Grid.Cell key={entry.id} xs={12} md={6} lg={4} print={6}>
+				<Grid.Cell key={entry.id} xs={12} md={6} lg={4}>
 					<Card {...entry}/>
 				</Grid.Cell>
 			))}

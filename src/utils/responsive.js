@@ -1,18 +1,10 @@
 import {css} from 'styled-components'
 import {breakpoints} from '../constants'
 
-// Iterate through the breakpoints and create a above template
-export const above = Object.keys(breakpoints).reduce((acc, label) => {
-	acc[label] = (...args) => css`
-		@media (min-width: ${breakpoints[label].width}) {
-			${css(...args)}
-		}
-	`
-	return acc
-}, {})
+const media = type => (...args) => css`@media only ${type} {${css(...args)}}`
 
-export const print = (...args) => `
-	@media only print {
-		${css(...args)}
-	}
-`
+export const screen = media('screen')
+export const print = media('print')
+export const above = Object.keys(breakpoints).reduce((obj = {}, key) => ({
+	...obj, [key]: media(`screen and (min-width: ${breakpoints[key].width})`),
+}), {})
