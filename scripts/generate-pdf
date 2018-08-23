@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+const puppeteer = require('puppeteer')
+const output = require('path').resolve(`${__dirname}/../public`)
+const program = require('path').basename(process.argv[1])
+const options = {printBackground: true}
+
+!(async () => {
+	const browser = await puppeteer.launch()
+	const page = await browser.newPage()
+	await page.goto(`file://${output}/index.html`, {waitUntil: 'networkidle2'})
+	await page.pdf({path: `${output}/generative-art-reference.pdf`, ...options})
+	await browser.close()
+	console.log(`${program}: done`)
+})().catch(e => {
+	console.error(`${program}: error`)
+	throw e
+})
