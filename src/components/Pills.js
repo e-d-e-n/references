@@ -23,7 +23,7 @@ const Pill = styled.div`
 	font-weight: 500;
 	letter-spacing: 0.025rem;
 	text-transform: uppercase;
-	font-size: 0.625rem;
+	font-size: 9.75px;
 	padding: 0.125rem 0.5rem;
 	margin: 0.125rem;
 	border-radius: 1rem;

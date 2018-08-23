@@ -90,11 +90,11 @@ const Card = ({
 	<Wrapper href={url && url} target='_blank'>
 		<ImageWrapper><Image src={image}/></ImageWrapper>
 		<TextWrapper>
-			{name && <Heading size={3}>{name}</Heading>}
+			{name && <Paragraph size={3}>{name}</Paragraph>}
 			<Pills icon='log-in' entries={input}/>
 			<Pills icon='zap' entries={transform}/>
 			<Pills icon='log-out' entries={output}/>
-			{(description || null) && <Description>{description}</Description>}
+			{(description || null) && <Description size={1}>{description}</Description>}
 		</TextWrapper>
 	</Wrapper>
 )
