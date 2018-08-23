@@ -27,13 +27,7 @@ export const colors = {
 	base11:         mix(0.11, black, white),
 	base06:         mix(0.06, black, white),
 	base03:         mix(0.03, black, white),
-	green:          '#00A147',
-	softgreen:      '#EEFCF4',
-	lightgreen:     '#6FCF97',
-	darkgreen:      '#355041',
-	footergreen:    '#21281E',
-	danger:         '#DF1A1A',
-	warning:        '#EE672D',
+	brand:          'indianred',
 }
 
 // ----------------------------------------------------
