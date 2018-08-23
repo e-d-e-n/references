@@ -1,17 +1,50 @@
 #!/usr/bin/env node
+const {resolve, basename} = require('path')
+const {spawn} = require('child_process')
+const {Duplex} = require('stream')
 const puppeteer = require('puppeteer')
-const output = require('path').resolve(`${__dirname}/../public`)
-const program = require('path').basename(process.argv[1])
-const options = {printBackground: true}
 
-!(async () => {
+function toReadableStream(buffer){
+  let stream = new Duplex()
+  stream.push(buffer)
+  stream.push(null)
+  return stream
+}
+
+const pipe = buffer => ({
+	into: child => new Promise((resolve, reject) => {
+		const data = toReadableStream(buffer)
+		data.on('end', () => child.stdin.end(err => err ? reject(err) : resolve()))
+		data.on('error', reject)
+		child.on('error', reject)
+		child.stdin.on('error', reject)
+		data.pipe(child.stdin)
+	}),
+})
+
+const generatePDF = async ({input, output}) => {
 	const browser = await puppeteer.launch()
 	const page = await browser.newPage()
-	await page.goto(`file://${output}/index.html`, {waitUntil: 'networkidle2'})
-	await page.pdf({path: `${output}/generative-art-reference.pdf`, ...options})
+	await page.goto(`file://${input}`, {waitUntil: 'networkidle0'})
+	const pdfBuffer = await page.pdf({printBackground: true})
+	const child = spawn(`ps2pdf -dPDFSETTINGS=/screen - ${output}`, {shell: true})
+	await pipe(pdfBuffer).into(child)
 	await browser.close()
-	console.log(`${program}: done`)
-})().catch(e => {
-	console.error(`${program}: error`)
-	throw e
-})
+}
+
+if(require.main === module){
+	const program = basename(process.argv[1])
+	const directory = resolve(`${__dirname}/../public`)
+	const input = `${directory}/index.html`
+	const output = `${directory}/index.pdf`
+	generatePDF({input, output}).then(
+		() => console.log(`${program}: done`),
+		e => {
+			console.error(`${program}: error`)
+			console.error(e)
+			process.exit(1)
+		},
+	)
+}else{
+	module.exports = generatePDF
+}
