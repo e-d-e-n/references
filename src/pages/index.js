@@ -10,21 +10,23 @@ const Wrapper = styled.div`
 	display: block;
 `
 
+const categories = {
+	ancestors: 'Ancestrais',
+	references: 'Referências',
+	posterity: 'Posteridade',
+}
+
 const IndexPage = ({examples}) => (
 	<Wrapper>
 		<Container>
-			<CardList
-				title='Ancestrais'
-				entries={examples.filter(x => x.group === 'ancestors')}
-			/>
-			<CardList
-				title='Referências'
-				entries={examples.filter(x => x.group === 'references')}
-			/>
-			<CardList
-				title='Posteridade'
-				entries={examples.filter(x => x.group === 'posterity')}
-			/>
+			{Object.keys(categories).map(id => (
+				<CardList
+					key={id}
+					id={id}
+					title={categories[id]}
+					entries={examples.filter(x => x.group === id)}
+				/>
+			))}
 		</Container>
 	</Wrapper>
 )
