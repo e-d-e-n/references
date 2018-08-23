@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {Link as UnstyledLink} from 'gatsby'
 import {colors, categories} from '../constants'
