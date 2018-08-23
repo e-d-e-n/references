@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {above} from '../utils/responsive'
 import {containerWidth} from '../constants'
 
