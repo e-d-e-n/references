@@ -9,6 +9,7 @@ import {colors} from '../constants'
 import {screen, print} from '../utils/responsive'
 import Container from '../components/Container'
 import CardList from '../components/CardList'
+import Footer from '../components/Footer'
 import {categories} from '../constants'
 
 const Title = styled.h1`
@@ -54,6 +55,7 @@ const IndexPage = ({examples}) => (
 					entries={examples.filter(x => x.group === id)}
 				/>
 			))}
+			<Footer/>
 		</Container>
 	</Fragment>
 )

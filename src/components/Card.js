@@ -87,7 +87,7 @@ const Card = ({
 	description,
 	thumbnails: {small = {}, large = {}, full = {}},
 }) => (
-	<Wrapper href={url && url} target='_blank'>
+	<Wrapper href={url} target='_blank' rel='noopener noreferrer'>
 		<ImageWrapper><Image src={image}/></ImageWrapper>
 		<TextWrapper>
 			{name && <Heading size={3}>{name}</Heading>}

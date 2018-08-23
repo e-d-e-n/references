@@ -1,5 +1,6 @@
 import {mix} from 'polished'
 
+export const airtable = 'https://airtable.com/shrXnZYAhGdE7smf2/tblPs6Tw5iTzlHLEE/viwUolPzfWOY5z3bh'
 export const columns = 12
 export const containerWidth = '70rem'
 export const breakpoints = {
