@@ -8,6 +8,10 @@ module.exports = {
 				tableName: 'examples',
 			},
 		},
-		'gatsby-plugin-styled-components',
+		'gatsby-plugin-no-sourcemaps',
+		{
+			resolve: 'gatsby-plugin-styled-components',
+			options: {displayName: false, fileName: false},
+		},
 	],
 }
