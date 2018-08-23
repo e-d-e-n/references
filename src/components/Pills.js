@@ -32,7 +32,7 @@ const Pill = styled.div`
 	flex-shrink:
 `
 
-const Pills = ({icon, entries}) => (
+const Pills = ({icon, entries = []}) => entries.length === 0 ? null : (
 	<Wrapper>
 		<Icon icon={icon} size={18} strokeWidth={2.125}/>
 		<Flex wrap>

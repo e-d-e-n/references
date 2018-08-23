@@ -62,14 +62,12 @@ const Card = ({
 	thumbnails: {small = {}, large = {}, full = {}},
 }) => (
 	<Wrapper href={url && url}>
-		{name && <Heading size={3}>{name}</Heading>}
 		{image && <ImageWrapper><Image src={image}/></ImageWrapper>}
+		{name && <Heading size={3}>{name}</Heading>}
 		<Pills icon='log-in' entries={input}/>
 		<Pills icon='zap' entries={transform}/>
 		<Pills icon='log-out' entries={output}/>
-		{!!description &&
-			<Description style={{maxWidth: '32em'}}>{description}</Description>
-		}
+		{(description || null) && <Description>{description}</Description>}
 	</Wrapper>
 )
 
