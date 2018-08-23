@@ -19,7 +19,6 @@ const sizes = {
 	9: {fontSize: '3.500rem', lineHeight: '4.00rem'},
 }
 
-
 export const Paragraph = styled(
 	// eslint-disable-next-line no-unused-vars
 	({color, weight, size, uppercase, ...props}) => <div {...props}/>
@@ -38,10 +37,10 @@ export const Paragraph = styled(
 Paragraph.defaultProps = {size: 1}
 
 
-export const Title = styled(Paragraph)`
+export const Heading = styled(Paragraph)`
 	${above.xg`
 		font-size: ${p => sizes[p.size+2].fontSize};
 		line-height: ${p => sizes[p.size+2].lineHeight};
 	`}
 `
-Title.defaultProps = {size: 5}
+Heading.defaultProps = {size: 4}

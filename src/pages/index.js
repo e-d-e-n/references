@@ -4,17 +4,27 @@ import styled from 'styled-components'
 import {graphql} from 'gatsby'
 import {mapProps} from 'recompose'
 import Container from '../components/Container'
-import Card from '../components/Card'
+import CardList from '../components/CardList'
 
 const Wrapper = styled.div`
 	display: block;
 `
 
 const IndexPage = ({examples}) => (
-	// <div>{JSON.stringify(examples, null, 2)}</div>
 	<Wrapper>
 		<Container>
-			{examples.map(example => <Card {...example}/>)}
+			<CardList
+				title='Ancestrais'
+				entries={examples.filter(x => x.group === 'ancestors')}
+			/>
+			<CardList
+				title='Referências'
+				entries={examples.filter(x => x.group === 'references')}
+			/>
+			<CardList
+				title='Posteridade'
+				entries={examples.filter(x => x.group === 'posterity')}
+			/>
 		</Container>
 	</Wrapper>
 )
