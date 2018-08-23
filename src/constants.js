@@ -11,9 +11,9 @@ export const breakpoints = {
 }
 
 export const categories = {
-	ancestors: 'Ancestrais',
-	references: 'Referências',
-	posterity: 'Posteridade',
+	ancestors: {title: 'Ancestrais'},
+	references: {title: 'Referências'},
+	posterity: {title: 'Posteridade'},
 }
 
 

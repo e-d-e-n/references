@@ -18,7 +18,7 @@ const IndexPage = ({examples}) => (
 				<CardList
 					key={id}
 					id={id}
-					title={categories[id]}
+					title={categories[id].title}
 					entries={examples.filter(x => x.group === id)}
 				/>
 			))}
