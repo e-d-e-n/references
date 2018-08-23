@@ -8,5 +8,6 @@ module.exports = {
 				tableName: 'examples',
 			},
 		},
+		'gatsby-plugin-styled-components',
 	],
 }
