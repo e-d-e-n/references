@@ -5,16 +5,11 @@ import {graphql} from 'gatsby'
 import {mapProps} from 'recompose'
 import Container from '../components/Container'
 import CardList from '../components/CardList'
+import {categories} from '../constants'
 
 const Wrapper = styled.div`
 	display: block;
 `
-
-const categories = {
-	ancestors: 'Ancestrais',
-	references: 'Referências',
-	posterity: 'Posteridade',
-}
 
 const IndexPage = ({examples}) => (
 	<Wrapper>

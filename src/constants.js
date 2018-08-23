@@ -10,6 +10,12 @@ export const breakpoints = {
 	xg: {width: '80rem', gutter: 2.0},
 }
 
+export const categories = {
+	ancestors: 'Ancestrais',
+	references: 'Referências',
+	posterity: 'Posteridade',
+}
+
 
 // ----------------------------------------------------
 // Colors
