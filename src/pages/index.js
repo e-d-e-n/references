@@ -1,31 +1,47 @@
 import '../utils/reset.css'
-import React from 'react'
+import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import {graphql} from 'gatsby'
 import {mapProps} from 'recompose'
 import FitText from '@kennethormandy/react-fittext'
 import {colors} from '../constants'
+import {screen, print} from '../utils/responsive'
 import Container from '../components/Container'
 import CardList from '../components/CardList'
 import {categories} from '../constants'
 
-const Wrapper = styled.div`
-	display: block;
-`
-
 const Title = styled.h1`
-	margin: 0 calc(50% - 50vw);
-	transform: translateY(-25%);
-	line-height: 0.25;
-	color: ${colors.base06};
-	font-weight: 300;
-	text-align: center;
-	word-break: break-all;
-	user-select: none;
+	${screen`
+		display: block;
+		margin: 0 calc(50% - 50vw) 0;
+		transform: translateY(-25%);
+		line-height: 0.25;
+		color: ${colors.base06};
+		font-weight: 300;
+		text-align: center;
+		word-break: break-all;
+		user-select: none;
+		> * {
+			margin-bottom: 0.5em;
+		}
+	`}
+	${print`
+		> * {
+			transform: translate(2rem, 2rem);
+			font-weight: 500;
+			font-size: 8rem !important;
+			line-height: 1;
+			page-break-after: always;
+			text-shadow:
+				-2rem 2rem rgba(0,0,0,0.08),
+				4rem 4rem rgba(0,0,0,0.11),
+				-8rem 8rem rgba(0,0,0,0.22);
+		}
+	`}
 `
 
 const IndexPage = ({examples}) => (
-	<Wrapper>
+	<Fragment>
 		<Title><FitText compressor={0.75}>Arte Generativa</FitText></Title>
 		<Container>
 			{Object.keys(categories).map(id => (
@@ -37,7 +53,7 @@ const IndexPage = ({examples}) => (
 				/>
 			))}
 		</Container>
-	</Wrapper>
+	</Fragment>
 )
 const getFirstImage = (images = []) => (
 	images.find(({type}) => type.startsWith('image/')) || {}
