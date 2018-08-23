@@ -700,6 +700,13 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@kennethormandy/react-fittext@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@kennethormandy/react-fittext/-/react-fittext-0.3.0.tgz#689979a6ccdb1e1898d6f38dc9fec569dc41d8b5"
+  dependencies:
+    lodash.debounce "^4.0.8"
+    prop-types "^15.6.1"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
