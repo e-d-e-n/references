@@ -12,6 +12,7 @@
     "@kennethormandy/react-fittext": "^0.3.0",
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "next",
+    "gatsby-plugin-netlify": "^2.0.0-rc.0",
     "gatsby-plugin-no-sourcemaps": "^2.0.0-rc.0",
     "gatsby-plugin-styled-components": "^3.0.0-rc.0",
     "polished": "^2.0.2",
