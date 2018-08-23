@@ -21,8 +21,8 @@ const Separator = styled(Heading)`
 	z-index: 1;
 `
 
-const CardList = ({title, entries}) => (
-	<Wrapper>
+const CardList = ({title, entries, id}) => (
+	<Wrapper id={id}>
 		<Separator>{title}</Separator>
 		<Row>
 			{entries.map(entry => (
