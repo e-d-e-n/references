@@ -31,6 +31,7 @@ const Wrapper = styled.a`
 	margin: 4rem 0;
 	text-decoration: none;
 	color: currentColor;
+	page-break-inside: avoid;
 	:hover, :focus, :active {
 		color: ${colors.brand};
 		${Image} {

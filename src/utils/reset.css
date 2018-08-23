@@ -62,3 +62,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	color: #252A31;
 }
+
+
+@page {
+  size: A4 portrait;
+  margin: 1cm;
+}

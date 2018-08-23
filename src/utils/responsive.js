@@ -10,3 +10,9 @@ export const above = Object.keys(breakpoints).reduce((acc, label) => {
 	`
 	return acc
 }, {})
+
+export const print = (...args) => `
+	@media only print {
+		${css(...args)}
+	}
+`

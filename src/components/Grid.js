@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {breakpoints, columns} from '../constants'
-import {above} from '../utils/responsive'
+import {above, print} from '../utils/responsive'
 
 const mapBreakpoints = fn => Object.keys(breakpoints)
 	.map(label => above[label]`${fn(breakpoints[label])}`)
@@ -35,6 +35,10 @@ export const Cell = styled.div`
 		display: ${value > 0 ? 'block' : 'none'};
 		width: ${(value / columns || 1) * 100 + '%'};
 	`)}
+	${({print: value}) => typeof value === 'number' && print`
+		display: ${value > 0 ? 'block' : 'none'};
+		max-width: ${(value / columns || 1) * 100 + '%'} !important;
+	`}
 `
 
 Row.Cell = Cell
