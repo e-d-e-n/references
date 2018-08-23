@@ -1,8 +1,8 @@
 [build]
   publish = "public"
-  command = "npm run build && ./scripts/generate-pdf"
+  command = "npm run build"
 
 [[headers]]
-  for = "/assets/fonts/*"
+  for = "/fonts/*"
   [headers.value]
     Cache-Control = "public, max-age=86400"
