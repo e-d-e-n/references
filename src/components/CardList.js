@@ -5,7 +5,10 @@ import {Heading} from './Text'
 import {Row, Cell} from '../components/Grid'
 import Card from './Card'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+	margin: 5rem 0;
+	overflow: hidden;
+`
 
 const Separator = styled(Heading)`
 	display: block;
@@ -14,7 +17,6 @@ const Separator = styled(Heading)`
 	font-weight: 300;
 	background: white;
 	padding: 0.375em 0;
-	margin-top: 10rem;
 	border-bottom: 1px solid ${colors.base88};
 	z-index: 1;
 `
