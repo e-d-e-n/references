@@ -61,7 +61,7 @@ const Card = ({
 	description,
 	thumbnails: {small = {}, large = {}, full = {}},
 }) => (
-	<Wrapper href={url && url}>
+	<Wrapper href={url && url} target='_blank'>
 		{image && <ImageWrapper><Image src={image}/></ImageWrapper>}
 		{name && <Heading size={3}>{name}</Heading>}
 		<Pills icon='log-in' entries={input}/>
