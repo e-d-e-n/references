@@ -2,14 +2,23 @@ import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import {Link as UnstyledLink} from 'gatsby'
 import {colors, categories} from '../constants'
-import {above, screen, print} from '../utils/responsive'
+import {above, print} from '../utils/responsive'
 import {Heading} from './Text'
 import UnstyledGrid from './Grid'
 import Card from './Card'
 
 const Grid = styled(UnstyledGrid)`
-	${screen`
+	${above.xs`
+		padding-bottom: 4rem;
+	`}
+	${above.sm`
 		padding-bottom: 8rem;
+	`}
+	${above.md`
+		padding-bottom: 10rem;
+	`}
+	${above.lg`
+		padding-bottom: 12rem;
 	`}
 `
 
@@ -33,35 +42,29 @@ const Separator = styled(Heading)`
 `
 
 const Link = styled(UnstyledLink)`
-	display: none;
-	opacity: 0.44;
-	&:hover{
-		opacity: 1;
-		color: indianred;
-	}
+	color: currentColor;
+	text-decoration: none;
+	font-weight: 800;
+	display: block;
+	${p => !p.active && `
+		font-weight: 100;
+		display: none;
+		opacity: 0.44;
+		&:hover{
+			opacity: 1;
+			color: indianred;
+		}
+	`}
 	${above.sm`
 		display: inherit;
 	`}
-	${print`
-		display: none;
-	`}
-`
-
-const UnstyledAnchor = ({active, hash, children, ...props}) => active
-	? <a {...props} active>{children}</a>
-	: <Link to={`#${hash}`} {...props}>{children}</Link>
-
-const Anchor = styled(UnstyledAnchor)`
-	color: currentColor;
-	text-decoration: none;
-	font-weight: ${p => p.active ? 800 : 100};
 `
 
 const CardList = ({title, entries, id}) => (
-	<Fragment>
-		<Separator id={id}>
+	<div id={id}>
+		<Separator>
 			{Object.keys(categories).map(key => (
-				<Anchor active={key === id} hash={key}>{categories[key].title}</Anchor>
+				<Link active={key === id} to={`#${key}`}>{categories[key].title}</Link>
 			))}
 		</Separator>
 		<Grid>
@@ -71,7 +74,7 @@ const CardList = ({title, entries, id}) => (
 				</Grid.Cell>
 			))}
 		</Grid>
-	</Fragment>
+	</div>
 )
 
 export default CardList

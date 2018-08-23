@@ -1,5 +1,6 @@
 import '../utils/reset.css'
 import React, {Fragment} from 'react'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import {graphql} from 'gatsby'
 import {mapProps} from 'recompose'
@@ -42,6 +43,7 @@ const Title = styled.h1`
 
 const IndexPage = ({examples}) => (
 	<Fragment>
+		<Helmet><title>TCC | Arte Generativa</title></Helmet>
 		<Title><FitText compressor={0.75}>Arte Generativa</FitText></Title>
 		<Container>
 			{Object.keys(categories).map(id => (
